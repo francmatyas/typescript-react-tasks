@@ -1,0 +1,27 @@
+#main {
+  grid-row: main-start/main-end;
+  height: 100%;
+
+  color: #fff;
+  padding: 0 2rem 2rem 2rem;
+  overflow: hidden;
+
+  #main-card {
+    height: 100%;
+    width: 100%;
+    background-color: #202c39;
+    border-radius: 1rem;
+    padding: 2rem;
+
+    overflow: scroll;
+  }
+
+  #main-author {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 8px;
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
