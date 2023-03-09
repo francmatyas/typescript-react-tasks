@@ -3,7 +3,14 @@ import logo from "../../../assets/img/to-do-list.png";
 
 import "./InitialModal.scss";
 
-function InitialModal(props) {
+interface InitialModalProps {
+  show: boolean;
+  onHide: () => void;
+}
+
+function InitialModal(props: InitialModalProps) {
+  const { onHide } = props;
+
   return (
     <div id="initial-modal">
       <Modal
@@ -41,7 +48,7 @@ function InitialModal(props) {
               border: "none",
               color: "#23272a",
             }}
-            onClick={props.onHide}
+            onClick={onHide}
           >
             Continue
           </Button>

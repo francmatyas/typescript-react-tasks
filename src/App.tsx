@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -67,7 +66,7 @@ function App() {
         sort={sort}
       />
       <Main data={tasks} sort={sort} onEditTask={editTaskHandler} />
-      <NewTaskAlert show={taskCreated} onClose={() => setTaskCreated(false)} />
+      <NewTaskAlert show={taskCreated} onHide={() => setTaskCreated(false)} />
     </div>
   );
 }

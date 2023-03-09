@@ -1,12 +1,20 @@
 import "./DateDisplay.scss";
 
-function DateDisplay(props) {
-  const date = new Date(props.date);
+function DateDisplay(props: { date: Date }) {
+  const { date } = props;
   const day = date.getDate();
   const month = date.getMonth();
   const dayOfWeek = date.getDay();
-  const dayOfWeekNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const monthNames = [
+  const dayOfWeekNames: string[] = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+  const monthNames: string[] = [
     "Jan",
     "Feb",
     "Mar",

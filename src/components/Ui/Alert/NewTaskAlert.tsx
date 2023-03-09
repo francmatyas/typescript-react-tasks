@@ -1,7 +1,12 @@
 import { Alert } from "react-bootstrap";
 import "./NewTaskAlert.scss";
 
-function NewTaskAlert(props) {
+interface NewTaskAlertProps {
+  show: boolean;
+  onHide: () => void;
+}
+
+function NewTaskAlert(props: NewTaskAlertProps) {
   return (
     <Alert
       {...props}
