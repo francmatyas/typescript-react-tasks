@@ -18,23 +18,23 @@ function Tasks(props: ITasksProps) {
   const { tasks, sort, onEditTask } = props;
   const [showCompleted, setShowCompleted] = useState(true);
 
-  function showCompletedHandler() {
+  function showCompletedHandler(): void {
     setShowCompleted(!showCompleted);
   }
 
-  const sortedTasks = [
+  const sortedTasks: ITask[][] = [
     [...tasks.getTasks()],
     [...tasks.sortByDate()],
     [...tasks.sortByFavorite()],
     [...tasks.sortByTitle()],
   ];
 
-  function editTaskHandler(task: ITask) {
+  function editTaskHandler(task: ITask): void {
     onEditTask(task);
   }
 
-  const uncompletedTasks = sortedTasks[sort].filter((task) => !task.completed);
-  const completedTasks = sortedTasks[sort].filter((task) => task.completed);
+  const uncompletedTasks: ITask[] = sortedTasks[sort].filter((task) => !task.completed);
+  const completedTasks: ITask[] = sortedTasks[sort].filter((task) => task.completed);
 
   return (
     <section id="tasks">

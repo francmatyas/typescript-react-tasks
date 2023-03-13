@@ -1,7 +1,7 @@
 import "./SortLabel.scss";
 
 function SortLabel(props: { sort: number }) {
-  const sortLabels = [" ", "Date", "Favorite", "Title"];
+  const sortLabels: string[] = [" ", "Date", "Favorite", "Title"];
 
   return (
     <>

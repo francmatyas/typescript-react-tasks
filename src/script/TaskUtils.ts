@@ -30,11 +30,11 @@ export class Tasks {
     this.tasks = list.map((t) => new Task(t));
   }
 
-  addTask(task: Task) {
+  addTask(task: Task): void {
     this.tasks.push(task);
   }
 
-  editTask(task: Task) {
+  editTask(task: Task): void {
     const taskIndex = this.tasks.findIndex((t) => t.id === task.id);
     this.tasks[taskIndex] = task;
   }
@@ -43,28 +43,28 @@ export class Tasks {
     return this.tasks.find((t) => t.id === id);
   }
 
-  getTasks() {
+  getTasks(): Task[] {
     return [...this.tasks];
   }
 
-  sortByFavorite() {
+  sortByFavorite(): Task[] {
     const sortedTasks: Task[] = [...this.tasks];
     return sortedTasks.sort((a: any, b: any) => b.favorite - a.favorite);
   }
 
-  sortByDate() {
+  sortByDate(): Task[] {
     const sortedTasks = [...this.tasks];
     return sortedTasks.sort((a: any, b: any) => a.completion - b.completion);
   }
 
-  sortByTitle() {
+  sortByTitle(): Task[] {
     const sortedTasks = [...this.tasks];
     return sortedTasks.sort((a, b) => a.title.localeCompare(b.title));
   }
 }
 
 export class JSONParser {
-  public static Deserialize(data: string): any {
+  public static Deserialize(data: string): Task[] {
     return JSON.parse(data, JSONParser.ReviveDateTime);
   }
 

@@ -19,7 +19,7 @@ interface IToolbarProps {
 
 function Toolbar(props: IToolbarProps) {
   const { sort, onSortChange, onTaskCreate } = props;
-  const [taskTitle, setTaskTitle] = useState("");
+  const [taskTitle, setTaskTitle] = useState<string>("");
 
   const selectIcons = [
     <HiOutlineBars3BottomLeft size={24} />,

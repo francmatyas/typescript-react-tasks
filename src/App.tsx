@@ -13,15 +13,14 @@ import InitialModal from "./components/Ui/Modal/InitialModal";
 import NewTaskAlert from "./components/Ui/Alert/NewTaskAlert";
 
 function App() {
-  const [tasks, setTasks] = useState(
+  const [tasks, setTasks] = useState<Tasks>(
     new Tasks(JSONParser.Deserialize(JSON.stringify(DUMMY_TASKS)))
   );
-  console.log(tasks);
 
-  const [sort, setSort] = useState(0);
-  const [taskCreated, setTaskCreated] = useState(false);
+  const [sort, setSort] = useState<number>(0);
+  const [taskCreated, setTaskCreated] = useState<boolean>(false);
 
-  function addTaskHandler(task: Task) {
+  function addTaskHandler(task: Task): void {
     tasks.addTask(task);
     const newTasks = new Tasks(tasks.tasks);
     setTasks(newTasks);
@@ -32,20 +31,20 @@ function App() {
     }, 2500);
   }
 
-  function editTaskHandler(task: Task) {
+  function editTaskHandler(task: Task): void {
     tasks.editTask(task);
     const newTasks = new Tasks(tasks.tasks);
     setTasks(newTasks);
   }
 
-  function sortChangeHandler(sort: number) {
+  function sortChangeHandler(sort: number): void {
     setSort(sort);
   }
 
-  const [modalShow, setModalShow] = useState(true);
+  const [modalShow, setModalShow] = useState<boolean>(true);
   const [cookies, setCookie] = useCookies(["initialCookie"]);
 
-  function initialModalCloseHandler() {
+  function initialModalCloseHandler(): void {
     setModalShow(false);
     setCookie(
       "initialCookie",
